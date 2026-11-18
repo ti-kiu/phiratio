@@ -38,6 +38,8 @@ Canonical host is `https://phiratio.app` with a trailing slash. `www.phiratio.ap
 
 Worker name: `phiratio-web`.
 
+Cloudflare Workers Builds is connected to this repository for Worker phiratio-web.
+
 This app deploys with [vinext](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/), the current Next.js-on-Workers path. The Worker config is `cloudflare.config.ts`. There is no `wrangler.jsonc`: vinext deploys with the Cloudflare CLI, not a hand-written Wrangler file.
 
 No secrets are required. Do not set `NEXT_PUBLIC_CREEM_LIVE`.
