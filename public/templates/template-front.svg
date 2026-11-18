@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" fill="none">
+  <title>Transparent front-facing golden ratio face template</title>
+  <g stroke="#745812" stroke-width="3" stroke-linecap="round">
+    <ellipse cx="450" cy="620" rx="250" ry="360"/>
+    <path d="M250 560 C320 500 380 490 450 490 C520 490 580 500 650 560"/>
+    <path d="M330 560 h70 M500 560 h70"/>
+    <path d="M450 490 v90"/>
+    <path d="M410 760 h80"/>
+    <path d="M390 860 Q450 900 510 860"/>
+    <path d="M200 380 H700 M200 620 H700 M200 860 H700"/>
+    <path d="M250 260 V980 M350 260 V980 M450 260 V980 M550 260 V980 M650 260 V980"/>
+  </g>
+</svg>

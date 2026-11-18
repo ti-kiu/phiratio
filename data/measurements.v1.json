@@ -1,0 +1,299 @@
+{
+  "version": "1.0",
+  "status": "locked",
+  "lockedOn": "2026-11-18",
+  "timezone": "Asia/Shanghai",
+  "spec": "docs/measurement-spec-v1.md",
+  "note": "Single source for ratio names, groups, measuring-window references, and the VFO constant. The UI, PDF report, and FAQ must read from this file. Do not hard-code reference values elsewhere.",
+  "wording": {
+    "footnote": "These values are this site's design references, not a standard of appearance.",
+    "notAStandardShort": "this site's design reference",
+    "doNotSayAccordingTo": true,
+    "doNotNameAPaperOrMask": true,
+    "intervalBar": "referenceTickAndMeasuredMarkOnly",
+    "noNormalRangeBand": true,
+    "differenceRule": "measured - reference",
+    "differenceDecimals": 3
+  },
+  "constants": {
+    "phi": {
+      "id": "phi",
+      "symbol": "φ",
+      "value": 1.618,
+      "description": "UI form of the golden ratio. Hairline-to-chin length / face width, and the greater-to-lesser guide for golden-ratio segment rows."
+    },
+    "vfo": {
+      "id": "vfo",
+      "name": "Visible forehead offset",
+      "value": 0.238,
+      "unit": "face-width",
+      "faceWidth": "zygion-to-zygion",
+      "definition": "VFO = phi - 1.38. Assumed vertical distance from the midline hairline down to the visible forehead top, in face-width units.",
+      "caveat": "A shared design assumption, not a measured property of a given face. Hair, hairline, and landmark placement change the true offset. Visible-window rows 1 and 2 must be labeled Derived design reference."
+    }
+  },
+  "formulas": {
+    "visibleLengthOverWidthReference": "phi - vfo",
+    "visibleUpperOverLowerReference": "(1 - vfo) / (phi - 1)",
+    "computed": {
+      "visibleLengthOverWidthReference": 1.38,
+      "visibleUpperOverLowerReference": 1.233
+    }
+  },
+  "windows": [
+    {
+      "id": "visible-forehead-to-chin",
+      "name": "Visible forehead to chin",
+      "uiLabel": "Visible forehead to chin (about 1.38)",
+      "default": true,
+      "topLandmark": "visible-forehead",
+      "bottomLandmark": "menton",
+      "lengthOverWidthReference": 1.38,
+      "derivedFrom": "phi - vfo"
+    },
+    {
+      "id": "hairline-to-chin",
+      "name": "Hairline to chin",
+      "uiLabel": "Hairline to chin (1.618)",
+      "default": false,
+      "topLandmark": "hairline",
+      "bottomLandmark": "menton",
+      "lengthOverWidthReference": 1.618,
+      "derivedFrom": "phi"
+    }
+  ],
+  "deferredWindows": [
+    {
+      "id": "jawline-contour",
+      "name": "Window that includes the jawline contour",
+      "v1": false,
+      "reason": "No confirmed landmarks or reference. Keep out of the UI."
+    }
+  ],
+  "groups": [
+    {
+      "id": "golden-ratio",
+      "name": "Golden ratio"
+    },
+    {
+      "id": "thirds-and-fifths",
+      "name": "Thirds and fifths"
+    },
+    {
+      "id": "symmetry",
+      "name": "Symmetry"
+    }
+  ],
+  "rows": [
+    {
+      "id": "face-length-over-width",
+      "number": 1,
+      "name": "Face length / face width",
+      "group": "golden-ratio",
+      "windowDependent": true,
+      "numerator": "selected window top to menton",
+      "denominator": "zygion photo-left to zygion photo-right",
+      "references": {
+        "visible-forehead-to-chin": {
+          "value": 1.38,
+          "label": "Derived design reference",
+          "derivedFrom": "phi - vfo"
+        },
+        "hairline-to-chin": {
+          "value": 1.618,
+          "label": "Golden ratio reference",
+          "derivedFrom": "phi"
+        }
+      }
+    },
+    {
+      "id": "upper-face-over-lower-face",
+      "number": 2,
+      "name": "Upper face / lower face",
+      "group": "golden-ratio",
+      "windowDependent": true,
+      "numerator": "selected window top to subnasale",
+      "denominator": "subnasale to menton",
+      "references": {
+        "visible-forehead-to-chin": {
+          "value": 1.233,
+          "label": "Derived design reference",
+          "derivedFrom": "(1 - vfo) / (phi - 1)",
+          "display": "1.233",
+          "alsoDescribedAs": "about 1.23"
+        },
+        "hairline-to-chin": {
+          "value": 1.618,
+          "label": "Golden ratio reference",
+          "derivedFrom": "phi"
+        }
+      }
+    },
+    {
+      "id": "mouth-width-over-nose-width",
+      "number": 3,
+      "name": "Mouth width / nose width",
+      "group": "golden-ratio",
+      "windowDependent": false,
+      "numerator": "cheilion photo-left to cheilion photo-right",
+      "denominator": "alare photo-left to alare photo-right",
+      "references": {
+        "independent": {
+          "value": 1.618,
+          "label": "Golden ratio reference"
+        }
+      }
+    },
+    {
+      "id": "inter-eye-distance-over-eye-width",
+      "number": 4,
+      "name": "Inter-eye distance / eye width",
+      "group": "thirds-and-fifths",
+      "windowDependent": false,
+      "numerator": "endocanthion photo-left to endocanthion photo-right",
+      "denominator": "mean palpebral fissure width",
+      "references": {
+        "independent": {
+          "value": 1.0,
+          "label": "Fifths guide"
+        }
+      }
+    },
+    {
+      "id": "chin-length-over-nose-to-mouth",
+      "number": 5,
+      "name": "Chin length / nose-to-mouth",
+      "group": "golden-ratio",
+      "windowDependent": false,
+      "numerator": "stomion to menton",
+      "denominator": "subnasale to stomion",
+      "numeratorNote": "Stomion is the midline mouth slit, not the lower-lip border.",
+      "references": {
+        "independent": {
+          "value": 1.618,
+          "label": "Golden ratio reference"
+        }
+      },
+      "classicThirdsComparison": 2.0,
+      "emptyState": {
+        "when": "Mouth slightly open, laughing, or stomion cannot be placed reliably.",
+        "copy": "Can't measure this on the current photo.",
+        "doNotInventANumber": true
+      },
+      "interpretationWhenAboveReference": {
+        "copy": "This row uses the golden ratio reference (1.618). A classic thirds-style split of the same two segments is about 2.0. A value above 1.618 can sit closer to that classic split. That is the difference between the two versions, not a deviation from a standard.",
+        "doNotCallItADeviation": true
+      }
+    },
+    {
+      "id": "mid-face-over-lower-face",
+      "number": 6,
+      "name": "Mid-face height / lower-face height",
+      "group": "thirds-and-fifths",
+      "windowDependent": false,
+      "numerator": "brow line to subnasale, after roll correction",
+      "denominator": "subnasale to menton",
+      "references": {
+        "independent": {
+          "value": 1.0,
+          "label": "Thirds guide"
+        }
+      }
+    },
+    {
+      "id": "face-width-over-five-eye-width",
+      "number": 7,
+      "name": "Face width / five-eye width",
+      "group": "thirds-and-fifths",
+      "windowDependent": false,
+      "numerator": "zygion photo-left to zygion photo-right",
+      "denominator": "5 × mean eye width",
+      "references": {
+        "independent": {
+          "value": 1.0,
+          "label": "Fifths guide"
+        }
+      }
+    },
+    {
+      "id": "outer-eye-width-over-face-width",
+      "number": 8,
+      "name": "Outer-eye width / face width",
+      "group": "thirds-and-fifths",
+      "windowDependent": false,
+      "numerator": "exocanthion photo-left to exocanthion photo-right",
+      "denominator": "zygion photo-left to zygion photo-right",
+      "references": {
+        "independent": {
+          "value": 0.6,
+          "label": "Fifths guide",
+          "exact": "3/5"
+        }
+      }
+    },
+    {
+      "id": "photo-left-over-photo-right-eye-width",
+      "number": 9,
+      "name": "Photo left / photo right eye width",
+      "group": "symmetry",
+      "windowDependent": false,
+      "laterality": "photo-left / photo-right",
+      "numerator": "photo-left palpebral fissure (exocanthion to endocanthion)",
+      "denominator": "photo-right palpebral fissure",
+      "references": {
+        "independent": {
+          "value": 1.0,
+          "label": "Symmetry (equality)"
+        }
+      }
+    },
+    {
+      "id": "photo-left-over-photo-right-brow-height",
+      "number": 10,
+      "name": "Photo left / photo right brow height",
+      "group": "symmetry",
+      "windowDependent": false,
+      "laterality": "photo-left / photo-right",
+      "requiresRollCorrection": true,
+      "numerator": "perpendicular distance from the eye line to the photo-left brow peak, after roll correction",
+      "denominator": "same for photo-right",
+      "references": {
+        "independent": {
+          "value": 1.0,
+          "label": "Symmetry (equality)"
+        }
+      }
+    },
+    {
+      "id": "photo-left-over-photo-right-mouth-corner-height",
+      "number": 11,
+      "name": "Photo left / photo right mouth-corner height",
+      "group": "symmetry",
+      "windowDependent": false,
+      "laterality": "photo-left / photo-right",
+      "requiresRollCorrection": true,
+      "numerator": "perpendicular distance from the eye line to the photo-left cheilion, after roll correction",
+      "denominator": "same for photo-right",
+      "references": {
+        "independent": {
+          "value": 1.0,
+          "label": "Symmetry (equality)"
+        }
+      }
+    }
+  ],
+  "overlay": {
+    "id": "thirds-and-fifths-overlay",
+    "number": 12,
+    "name": "Thirds and fifths overlay",
+    "isRatioRow": false,
+    "group": "thirds-and-fifths",
+    "description": "Visual guide only. Not a 1.618 or 1.38 row."
+  },
+  "symmetryRules": {
+    "laterality": "photo-left / photo-right",
+    "lateralityNote": "Left and right mean the side that appears on the left or right of the image, not the subject's anatomical left or right.",
+    "rollCorrection": "Rotate the measurement frame so the eye line (default: line through both endocanthions) is horizontal before measuring brow height and mouth-corner height.",
+    "yawTip": "Keep the face square to the camera. Turning the head left or right can make the two sides look unequal even after roll correction."
+  }
+}

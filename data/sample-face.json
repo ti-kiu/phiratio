@@ -1,0 +1,75 @@
+{
+  "src": "/sample/sample-face.png",
+  "width": 1000,
+  "height": 1100,
+  "landmarks": {
+    "visible-forehead": {
+      "x": 500,
+      "y": 180
+    },
+    "hairline": {
+      "x": 500,
+      "y": 96
+    },
+    "brow-peak-photo-left": {
+      "x": 390,
+      "y": 328
+    },
+    "brow-peak-photo-right": {
+      "x": 620,
+      "y": 336
+    },
+    "exocanthion-photo-left": {
+      "x": 340,
+      "y": 390
+    },
+    "endocanthion-photo-left": {
+      "x": 450,
+      "y": 390
+    },
+    "endocanthion-photo-right": {
+      "x": 550,
+      "y": 390
+    },
+    "exocanthion-photo-right": {
+      "x": 660,
+      "y": 390
+    },
+    "zygion-photo-left": {
+      "x": 280,
+      "y": 477.21999999999997
+    },
+    "zygion-photo-right": {
+      "x": 720,
+      "y": 477.21999999999997
+    },
+    "alare-photo-left": {
+      "x": 455,
+      "y": 468.18609375
+    },
+    "alare-photo-right": {
+      "x": 545,
+      "y": 468.18609375
+    },
+    "subnasale": {
+      "x": 500,
+      "y": 484.18609375
+    },
+    "cheilion-photo-left": {
+      "x": 430.7,
+      "y": 594.0295696271929
+    },
+    "cheilion-photo-right": {
+      "x": 569.3,
+      "y": 594.0295696271929
+    },
+    "stomion": {
+      "x": 500,
+      "y": 586.0295696271929
+    },
+    "menton": {
+      "x": 500,
+      "y": 774.4399999999999
+    }
+  }
+}

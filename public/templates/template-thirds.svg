@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" fill="none">
+  <title>Face proportions template showing the rule of thirds and fifths</title>
+  <g stroke="#745812" stroke-width="3">
+    <rect x="180" y="180" width="540" height="840"/>
+    <path d="M180 460 H720 M180 740 H720"/>
+    <path d="M288 180 V1020 M396 180 V1020 M504 180 V1020 M612 180 V1020"/>
+  </g>
+</svg>
