@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, siteUrl } from "@/lib/seo";
 import {
   formatCatalogReference,
   formatReference,
@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = pageMeta({
   title: "Golden Ratio Face Examples — What to Look For",
   description:
-    "See where the golden ratio actually shows up in a face: 11 worked examples with the exact measurements, how to check them in your own photo, and where the idea breaks down.",
+    "See where the golden ratio shows up: 11 worked face examples with the measurements, how to check them in your own photo, and where the idea breaks down.",
   path: "/golden-ratio-face-examples/",
 });
 
@@ -106,9 +106,32 @@ const faqs = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Golden Ratio Face Examples — What to Look For",
+      description:
+        "Eleven concrete golden ratio face examples with measurements, the windows they depend on, and where the idea breaks down.",
+      url: `${siteUrl}/golden-ratio-face-examples/`,
+      publisher: { "@type": "Organization", name: "PhiRatio", url: siteUrl },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
+
 export default function GoldenRatioFaceExamplesPage() {
   return (
     <main className="mx-auto max-w-[1120px] px-4 py-12 min-[900px]:px-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="max-w-3xl">
         <h1 className="text-[clamp(2.6rem,5vw,3.8rem)] leading-none text-ink">Golden Ratio Face Examples</h1>
         <p className="mt-5 text-lg leading-8 text-ink">

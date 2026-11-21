@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, siteUrl } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Symmetrical Face Test — What It Measures and How",
   description:
-    "A symmetrical face means the two halves match in width and height. Take the free in-browser test, see the three mirror checks, and learn why most faces are not exact.",
+    "A symmetrical face means the two halves match in width and height. Take the free in-browser test, see the three mirror checks, and why exact matches are rare.",
   path: "/face-symmetry-test/",
 });
 
@@ -49,9 +49,32 @@ const faqs = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Face Symmetry Test — What It Measures and How",
+      description:
+        "A symmetrical face means the two halves match in width and height. The free in-browser test shows the three mirror checks and why most faces are not exact.",
+      url: `${siteUrl}/face-symmetry-test/`,
+      publisher: { "@type": "Organization", name: "PhiRatio", url: siteUrl },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
+
 export default function FaceSymmetryTestPage() {
   return (
     <main className="mx-auto max-w-[1120px] px-4 py-12 min-[900px]:px-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="max-w-3xl">
         <h1 className="text-[clamp(2.6rem,5vw,3.8rem)] leading-none text-ink">Face Symmetry Test</h1>
         <p className="mt-5 text-lg leading-8 text-ink">

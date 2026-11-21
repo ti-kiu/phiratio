@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import { pageMeta, siteUrl } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Golden Ratio Face Templates — Free Transparent PNG & SVG",
@@ -88,9 +88,32 @@ const faqs = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Golden Ratio Face Templates — Free Transparent PNG & SVG",
+      description:
+        "Free transparent golden ratio face templates as PNG and SVG, with overlay instructions for Canva, Figma, and Photoshop.",
+      url: `${siteUrl}/templates/`,
+      publisher: { "@type": "Organization", name: "PhiRatio", url: siteUrl },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
+
 export default function TemplatesPage() {
   return (
     <main className="mx-auto max-w-[1120px] px-4 py-12 min-[900px]:px-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1 className="text-[clamp(2.6rem,5vw,3.8rem)] leading-none text-ink">Golden Ratio Face Templates</h1>
       <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
         Free transparent PNGs. The area around each grid is empty, so a photo can show through. Place the grid in any
