@@ -10,7 +10,14 @@ export const ogImage = {
   alt: "PhiRatio golden ratio face grid, a design reference for measuring facial proportions.",
 } as const;
 
-type IndexPath = "/" | "/templates/" | "/pricing/" | "/privacy/" | "/terms/";
+type IndexPath =
+  | "/"
+  | "/templates/"
+  | "/face-symmetry-test/"
+  | "/golden-ratio-face-examples/"
+  | "/pricing/"
+  | "/privacy/"
+  | "/terms/";
 
 export function pageMeta(input: { title: string; description: string; path: IndexPath }): Metadata {
   const url = input.path === "/" ? `${siteUrl}/` : `${siteUrl}${input.path}`;

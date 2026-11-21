@@ -12,6 +12,14 @@ export function SiteFooter() {
             {supportEmail}
           </a>
         </p>
+        <nav aria-label="Guides" className="flex flex-wrap gap-x-4 gap-y-2">
+          <Link href="/face-symmetry-test/" className="text-link underline underline-offset-4">
+            Face Symmetry Test
+          </Link>
+          <Link href="/golden-ratio-face-examples/" className="text-link underline underline-offset-4">
+            Golden Ratio Face Examples
+          </Link>
+        </nav>
         <nav aria-label="Legal" className="flex flex-wrap gap-x-4 gap-y-2">
           <Link href="/privacy/" className="text-link underline underline-offset-4">
             Privacy
