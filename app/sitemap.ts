@@ -4,6 +4,7 @@ import { siteUrl } from "@/lib/seo";
 const paths = [
   "/",
   "/face-symmetry-test/",
+  "/face-shape-guide/",
   "/golden-ratio-face-examples/",
   "/templates/",
   "/pricing/",
@@ -12,7 +13,7 @@ const paths = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-11-21");
+  const lastModified = new Date("2026-11-25");
   return paths.map((path) => ({
     url: path === "/" ? `${siteUrl}/` : `${siteUrl}${path}`,
     lastModified,

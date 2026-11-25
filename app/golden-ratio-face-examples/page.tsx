@@ -205,7 +205,10 @@ export default function GoldenRatioFaceExamplesPage() {
         <p className="mt-4 leading-7 text-muted">
           The grids are still genuinely useful — to artists, designers, and anyone learning to read proportion. That is
           exactly what PhiRatio is: a construction aid that shows you which numbers pass, which miss, and why, without
-          dressing the geometry up as a verdict.
+          dressing the geometry up as a verdict. If you want the broader read of what these proportions imply about
+          overall outline, the{" "}
+          <Link className="text-link underline underline-offset-4" href="/face-shape-guide/">face shape guide</Link>{" "}
+          maps the same measurements to the seven standard shapes.
         </p>
       </section>
 

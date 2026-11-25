@@ -14,6 +14,7 @@ type IndexPath =
   | "/"
   | "/templates/"
   | "/face-symmetry-test/"
+  | "/face-shape-guide/"
   | "/golden-ratio-face-examples/"
   | "/pricing/"
   | "/privacy/"

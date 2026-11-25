@@ -16,6 +16,9 @@ export function SiteFooter() {
           <Link href="/face-symmetry-test/" className="text-link underline underline-offset-4">
             Face Symmetry Test
           </Link>
+          <Link href="/face-shape-guide/" className="text-link underline underline-offset-4">
+            Face Shape Guide
+          </Link>
           <Link href="/golden-ratio-face-examples/" className="text-link underline underline-offset-4">
             Golden Ratio Face Examples
           </Link>
