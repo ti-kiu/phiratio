@@ -1,4 +1,5 @@
 import { FaqList } from "@/components/FaqList";
+import { HomeGuides } from "@/components/home/HomeGuides";
 import { MeasureApp } from "@/components/measure/MeasureApp";
 import { HOME_META_DESCRIPTION, HOME_META_TITLE } from "@/lib/copy";
 import { getFaqItems } from "@/lib/faq";
@@ -44,6 +45,7 @@ export default function HomePage() {
   return (
     <main>
       <MeasureApp />
+      <HomeGuides />
       <FaqList />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </main>
